@@ -7,7 +7,7 @@ rm go1.5.1.linux-amd64.tar.gz
 
 apt-get update
 apt-get upgrade -y
-apt-get install -y mc
+apt-get install -y mc git
 
 
 

@@ -12,10 +12,15 @@ Vagrant.configure(2) do |config|
   config.vm.network :public_network, bridge: "eth0"
   config.vm.provision :shell, path: "provision.sh"
   config.ssh.username = "vagrant"
-  config.ssh.password = File.read("vagrant-ssh.pswd")
+  if File.exists?(local_vagrantfile)
+    config.ssh.password = File.read("vagrant-ssh.pswd")
+  else
+    raise Vagrant::Errors::VagrantError.new, "Please create vagrant-ssh.pswd with vagrant ssh password"
+  end
+
   config.ssh.forward_agent = true
 
-#  config.vm.synced_folder "../../../", "/vagrant/project"
+  config.vm.synced_folder "../", "/vagrant/project"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
