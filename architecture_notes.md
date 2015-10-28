@@ -1,11 +1,11 @@
 # Notes on the architecture of prospective service
 
 ##Initial design - web system architecture 
-The ÐL system consitutes a server, a system daemon available for installation opn \*nix through usual means 
-(through repositories or compilation from sources). It is designed to be installed on casual cloud/hardware servers 
+The ÐL system consitutes a server, a system daemon available for installation on \*nix systems through usual means 
+(repositories or compilation). It is designed to be installed on casual cloud/hardware servers 
 with moderate CPU/HDD capacity. It requires basic configuration through usual textual config (YAML probably).
 It carries full Ethereum blockchain client in itself, though that needs no setup of it's own, is 
-installed automatically along with ÐL server and maintained by it. Though ÐL can be repointed to use any other 
+installed automatically along with ÐL server and maintained by it. Optionally ÐL can be repointed to use any other 
 arbitrary Ethereum client, as long as compatible JSON RPC API is available.
 
 ÐL server itself is expected to be accessible on port 80 through a subdomain of the website's main domain, 
@@ -13,12 +13,14 @@ and be allowed to talk directly to the user's browser. ÐL server will provide s
 integration. Also we will provide a complimentary JS library to further simplify integration.
 
 ###Keys handling and blockchain interaction
-Web service and user have own private keys, one for each. Handling private keys by the user is beyond the scope for now. 
-User provides his private key on registration, a multisig transaction is created with both keys and saved on blockchain. 
-Every user-service interaction creates a new multisig. User settings for other systems can be read from 
-the blockchain but cannot be edited by the service without their private keys.
-Optionally - have a browser plugin that will pick transation from the website page via JS and sign it in browser
-without exposing key to the web service. Pros - key no exposed, Cons - needs additional plugin installed.
+User and web counterparty have own private keys, one for each. Handling private keys by the user is beyond 
+the scope for now. User provides his private key on registration, a multisig transaction is created with 
+both keys and saved on blockchain. Every user-service interaction creates a new multisig. User settings for 
+other systems can be read from the blockchain but cannot be edited by the service.
+
+Optionally we may supply user with a browser plugin that will pick transation from the website page via JS 
+and sign it in browser without exposing key to the web service. 
+Pros - key no exposed, Cons - needs additional plugin installed.
 
 ###Questions
 - Instead of every webservice using their own daemon we can provide it as a SaaS. Will slightly centralise things, 
