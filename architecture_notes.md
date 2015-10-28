@@ -15,11 +15,11 @@ integration. Also we will provide a complimentary JS library to further simplify
 ###Keys handling and blockchain interaction
 User and web counterparty have own private keys, one for each. Handling private keys by the user is beyond 
 the scope for now. User provides his private key on registration, a multisig transaction is created with 
-both keys and saved on blockchain. Every user-service interaction creates a new multisig. User settings for 
-other systems can be read from the blockchain but cannot be edited by the service.
+both keys and saved on blockchain. Every new user-service pair creates a new multisig blockchain account. 
+User settings for other systems can be read from the blockchain but cannot be edited by the service.
 
-Optionally we may supply user with a browser plugin that will pick transation from the website page via JS 
-and sign it in browser without exposing key to the web service. 
+Optionally we may supply user with a browser plugin that will pick up unsigned transation from the website 
+page and sign it in browser without exposing key to the web service. 
 Pros - key no exposed, Cons - needs additional plugin installed.
 
 ###Questions
