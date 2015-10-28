@@ -23,11 +23,11 @@ page and sign it in browser without exposing key to the web service.
 Pros - key no exposed, Cons - needs additional plugin installed.
 
 ###Questions
-- Instead of every webservice using their own daemon we can provide it as a SaaS. Will slightly centralise things, 
-but provide reliable revenue model.
-- Creating separate multisig entries on blockchain for every user-service intersection might be space consuming.
-  need to research into if it's possible to attach multiple signatures to one account if settigns on various
-  services are identical for the same user.
+- Instead of every web service using their own ÐL server we can provide ÐL as a service. This will slightly 
+centralise things, but will provide reliable revenue model.
+- Creating separate multisig entries on blockchain for every user-service intersection is space consuming.
+  Is it possible to attach multiple signatures to one blockchain account if settigns on various
+  services are identical for the same user?
 - Even though we have only multisigs used, is the exposure of user's private key to all involved 
 web services is acceptable?
 
